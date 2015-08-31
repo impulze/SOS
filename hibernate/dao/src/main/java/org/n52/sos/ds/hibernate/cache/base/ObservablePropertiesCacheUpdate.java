@@ -65,7 +65,7 @@ public class ObservablePropertiesCacheUpdate extends AbstractThreadableDatasourc
         List<ObservableProperty> ops = new ObservablePropertyDAO().getObservablePropertyObjects(getSession());
         // if ObservationConstellation is supported load them all at once,
         // otherwise query obs directly
-        if (HibernateHelper.isEntitySupported(ObservationConstellation.class)) {
+        if (true) {
             Map<String, Collection<ObservationConstellationInfo>> ociMap =
                     ObservationConstellationInfo.mapByObservableProperty(new ObservationConstellationDAO()
                             .getObservationConstellationInfo(getSession()));

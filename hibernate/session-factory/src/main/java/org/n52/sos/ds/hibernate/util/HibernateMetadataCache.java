@@ -56,26 +56,6 @@ public class HibernateMetadataCache {
     private Set<String> initSupportedEntities(Map<String, ClassMetadata> classMetadata) {
         return ImmutableSet.copyOf(classMetadata.keySet());
     }
-    
-    public boolean isColumnSupported(Class<?> entityClass, String column) {
-        if (isEntitySupported(entityClass)) {
-            ClassMetadata classMetadata = this.classMetadata.get(entityClass.getName());
-            for (String propertyName : classMetadata.getPropertyNames()) {
-                if (propertyName.equals(column)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean isEntitySupported(Class<?> entityClass) {
-        return entityClass != null && isEntitySupported(entityClass.getName());
-    }
-
-    public boolean isEntitySupported(String entityClass) {
-        return this.supportedEntities.contains(entityClass);
-    }
 
     public static void init(Session session) {
         synchronized (lock) {

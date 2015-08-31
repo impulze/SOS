@@ -71,12 +71,7 @@ public class DaoFactory {
     }
 
     public AbstractSeriesDAO getSeriesDAO() throws CodedException {
-        if (HibernateHelper.isEntitySupported(SeriesObservation.class)) {
-            return new SeriesDAO();
-        } else {
-            throw new NoApplicableCodeException()
-                    .withMessage("Implemented series DAO is missing!");
-        }
+        return new SeriesDAO();
     }
 
     /**
@@ -91,45 +86,19 @@ public class DaoFactory {
      */
     public AbstractObservationDAO getObservationDAO()
             throws OwsExceptionReport {
-        if (HibernateHelper.isEntitySupported(SeriesObservation.class)) {
-            return new SeriesObservationDAO();
-        } else if (HibernateHelper.isEntitySupported(Observation.class)) {
-            return new ObservationDAO();
-        } else {
-            throw new NoApplicableCodeException()
-                    .withMessage("Implemented observation DAO is missing!");
-        }
+        return new SeriesObservationDAO();
     }
     
     public AbstractObservationTimeDAO getObservationTimeDAO() throws CodedException {
-        if (HibernateHelper.isEntitySupported(SeriesObservationTime.class)) {
-            return new SeriesObservationTimeDAO();
-        } else {
-            throw new NoApplicableCodeException()
-                    .withMessage("Implemented observation time DAO is missing!");
-        }
+        return new SeriesObservationTimeDAO();
     }
     
     public AbstractValueDAO getValueDAO() throws CodedException {
-        if (HibernateHelper.isEntitySupported(SeriesValue.class)) {
-            return new SeriesValueDAO();
-//        } else if (HibernateHelper.isEntitySupported(ObservationValue.class)) {
-//            return new ObserervationValueDAO();
-        } else {
-            throw new NoApplicableCodeException()
-                    .withMessage("Implemented value DAO is missing!");
-        }
+        return new SeriesValueDAO();
     }
     
     public AbstractValueTimeDAO getValueTimeDAO() throws CodedException {
-        if (HibernateHelper.isEntitySupported(SeriesValueTime.class)) {
-            return new SeriesValueTimeDAO();
-//        } else if (HibernateHelper.isEntitySupported(ObservationValueTime.class)) {
-//            return new ObservationValueTimeDAO();
-        } else {
-            throw new NoApplicableCodeException()
-                    .withMessage("Implemented value time DAO is missing!");
-        }
+        return new SeriesValueTimeDAO();
     }
 
 }

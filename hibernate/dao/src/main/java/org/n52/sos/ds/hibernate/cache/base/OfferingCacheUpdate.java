@@ -200,7 +200,7 @@ public class OfferingCacheUpdate extends AbstractQueueingDatasourceCacheUpdate<O
 
     protected boolean shouldOfferingBeProcessed(String offeringIdentifier) {
         try {        
-            if (HibernateHelper.isEntitySupported(ObservationConstellation.class)) {
+            if (true) {
                 return getOfferingObservationConstellationInfo().containsKey(offeringIdentifier);
             } else {
                 AbstractObservationDAO observationDAO = DaoFactory.getInstance().getObservationDAO();

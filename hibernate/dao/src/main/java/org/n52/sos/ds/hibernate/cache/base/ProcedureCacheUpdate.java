@@ -118,7 +118,7 @@ public class ProcedureCacheUpdate extends AbstractQueueingDatasourceCacheUpdate<
         startStopwatch();
         getProcedureDescriptionFormat();
         
-        boolean obsConstSupported = HibernateHelper.isEntitySupported(ObservationConstellation.class);
+        boolean obsConstSupported = true;
 
         Map<String, Collection<String>> procedureMap = procedureDAO.getProcedureIdentifiers(getSession());
         List<Procedure> procedures = procedureDAO.getProcedureObjects(getSession());
